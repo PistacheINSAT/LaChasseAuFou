@@ -1,0 +1,229 @@
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+}
+
+.container {
+    padding: 1%;
+    position: relative; /* permet de positionner à l'intérieur si besoin */
+}
+
+.container h1 {
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 270%;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px rgba(211, 211, 211, 0.345);
+    margin: 0; /* très important pour éviter de recréer la bande blanche ! */
+}
+
+.container #boussole {
+    padding-right: 3%;
+    text-align: right;
+    color: white;
+    font-size: 100%;
+    margin : 0;
+}
+
+.carte-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('FinalSkyMap.png');
+    /*background-size: cover;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #000;
+}
+
+.label {
+    position: absolute;
+    width: 5%;       /* Taille du "clicable" en % pour rester responsive */
+    height: 5%;
+    cursor: pointer;
+}
+
+.label-tooltip {
+    position: absolute;
+    top: -40px; /* un peu plus haut pour éviter de cacher la zone */
+    left: 0;
+    background-color: #001f3f; /* bleu foncé */
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px; /* coins arrondis */
+    border: 1px solid white; /* bordure blanche */
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: auto;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* ombre légère pour l'effet "boîte" */
+}
+
+.label:hover .label-tooltip {
+    opacity: 1;
+}
+
+.label:hover::after {
+    opacity: 1;
+}
+
+/* Position des zones */
+
+#polaris {
+    top: 26%;
+    left: 49.5%;
+    width: 1%;
+    height: 1%;
+}
+
+#grandeOurs {
+    top: 37%;
+    left: 48%;
+    width: 4%;
+    height: 2%;
+}
+
+#pleiades {
+    top: 36%; 
+    left: 60%;
+    width: 1%;
+    height: 1%;
+}
+
+/* Le Zodiaque */
+
+#belier {
+    top: 30%;
+    left: 62%;
+    width: 1%;
+    height: 2%
+}
+
+#taureau {
+    top: 42%; 
+    left: 61%;
+    width: 2%;
+    height: 3%;
+}
+
+#gemeaux {
+    top: 43%; 
+    left: 56%;
+    width: 2%;
+    height: 3%;
+}
+
+
+
+
+/* La Lune */
+
+.label-lune {
+    position: absolute;
+    top: 20%;  /* change selon l'endroit souhaité */
+    left: 35%; /* idem */
+    width: 2%; /* ajuste selon la taille de lune.png */
+    height: auto;
+    cursor: pointer;
+}
+
+.lune-lien img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: rotate(-12deg);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+}
+
+
+.label-lune img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: rotate(18deg);
+}
+
+.label-lune .tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #001f3f;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 0.5px solid white;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 0 0 4px rgba(255,255,255,0.2);
+}
+
+.label-lune:hover .tooltip {
+    opacity: 1;
+}
+
+/* Le Soleil */
+
+.label-soleil {
+    position: absolute;
+    top: 30%;  /* change selon l'endroit souhaité */
+    left: 65%; /* idem */
+    width: 4%; /* ajuste selon la taille de lune.png */
+    height: auto;
+    cursor: pointer;
+}
+
+.soleil-lien img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: rotate(-12deg);
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+}
+
+.label-soleil img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: rotate(35deg);
+}
+
+.label-soleil .tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #001f3f;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 0.5px solid white;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+    text-shadow: 0 0 4px rgba(255,255,255,0.2);
+}
+
+.label-soleil:hover .tooltip {
+    opacity: 1;
+}
