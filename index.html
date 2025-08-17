@@ -19,65 +19,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="carte-container" style="background-image: url('FinalSkyMap.PNG')">
+<body style="background-color: black;">
+    <div class="carte-container">
 
-        <div class="container">
+        <div class="titre">
             <h1>Le Monde Céleste</h1>
         </div>
         
-        <div class="container">
+       
+        <!-- Cadre contenant la carte du ciel -->
+        
+        <div class ="cadre" style="background-image: url('FinalSkyMap.PNG')">
+
+            <div class="label-lune">
+                <a href="lune.html" class="lune-lien">
+                    <img src="lune.png" alt="Lune" />
+                </a>
+                <span class="tooltip">La Lune</span>
+            </div>
+
+            <div class="label-soleil">
+                <a href="soleil.html" class="soleil-lien">
+                    <img src="soleil.png" alt="Soleil" />
+                </a>
+                <span class="tooltip">Le Soleil</span>
+            </div>
+
+
+            <!-- Elements distincts -->
+
+            <div class="label" id="polaris">
+                <a href="polaris.html" class="label-tooltip">Polaris</a>
+            </div>
+
+            <div class="label" id="grandeOurs">
+                <a href="grandeOurs.html" class="label-tooltip">Grande Ours</a>
+            </div>
+
+            <div class="label" id="pleiades">
+                <a href="pleiades.html" class="label-tooltip">Les Pléiades</a>
+            </div>
+
+
+            <!-- Zodiaque -->
+
+            <div class="label" id="belier">
+                <a href="zodiaque/belier.html" class="label-tooltip">Le Bélier</a>
+            </div>
+
+            <div class="label" id="taureau">
+                <a href="zodiaque/taureau.html" class="label-tooltip">Le Taureau</a>
+            </div>
+
+            <div class="label" id="gemeaux">
+                <a href="zodiaque/gemeaux.html" class="label-tooltip">Les Gémeaux</a>
+            </div>
+
+        </div>
+
+
+
+        <div class="boussole">
             <p id="boussole">la boussole</p>
         </div>
-
-
-        <!-- Lune et Soleil -->
-
-        <div class="label-lune">
-            <a href="lune.html" class="lune-lien">
-                <img src="lune.png" alt="Lune" />
-            </a>
-            <span class="tooltip">La Lune</span>
-        </div>
-
-        <div class="label-soleil">
-            <a href="soleil.html" class="soleil-lien">
-                <img src="soleil.png" alt="Soleil" />
-            </a>
-            <span class="tooltip">Le Soleil</span>
-        </div>
-
-
-        <!-- Elements distincts -->
-
-        <div class="label" id="polaris">
-            <a href="polaris.html" class="label-tooltip">Polaris</a>
-        </div>
-
-        <div class="label" id="grandeOurs">
-            <a href="grandeOurs.html" class="label-tooltip">Grande Ours</a>
-        </div>
-
-        <div class="label" id="pleiades">
-            <a href="pleiades.html" class="label-tooltip">Les Pléiades</a>
-        </div>
-
-
-        <!-- Zodiaque -->
-
-        <div class="label" id="belier">
-            <a href="zodiaque/belier.html" class="label-tooltip">Le Bélier</a>
-        </div>
-
-        <div class="label" id="taureau">
-            <a href="zodiaque/taureau.html" class="label-tooltip">Le Taureau</a>
-        </div>
-
-        <div class="label" id="gemeaux">
-            <a href="zodiaque/gemeaux.html" class="label-tooltip">Les Gémeaux</a>
-        </div>
-
-
 
     </div>
 </body>

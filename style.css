@@ -1,46 +1,60 @@
 
+/* Style de base */
 body, html {
     margin: 0;
     height: 100%;
+    background-color: black;
 }
 
-h1 {
-    color: white;
+/* Conteneur principal */
+.carte-container {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Titre ne haut à gauche */
+.titre {
     margin: 0;
-}
-
-.container {
-    padding: 1%;
-    position: relative; /* permet de positionner à l'intérieur si besoin */
-}
-
-.container h1 {
+    padding: 0%;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    margin: 0;
     color: white;
     font-family: 'Cinzel', serif;
-    font-size: 270%;
-    letter-spacing: 2px;
-    text-shadow: 0 0 5px rgba(211, 211, 211, 0.345);
-    margin: 0; /* très important pour éviter de recréer la bande blanche ! */
+    /*font-size: 2rem;*/
+    text-shadow: 0 0 5px rgba(241, 236, 236, 0.345);
 }
 
-.container #boussole {
-    padding-right: 3%;
-    text-align: right;
+/* Paragraphe en haut à droite */
+.boussole {
+    margin: 0;
+    padding: 0%;
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    margin: 0;
     color: white;
-    font-size: 100%;
-    margin : 0;
+    /*font-size: 1rem;*/
 }
 
-.carte-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    /*background-size: cover;*/
-    background-position: center;
+/* Cadre central contenant la carte du ciel */
+.cadre {
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-height: 100vh;
+    position: absolute;
+    max-width: 100vw;
+    max-height: 100vh;
+    /*background-image: url('FinalSkyMap.PNG');*/
+    background-size: contain;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #000;
+    background-position: center;
 }
+
 
 .label {
     position: absolute;
@@ -79,54 +93,24 @@ h1 {
 
 /* Position des zones */
 
-#polaris {
-    top: 26%;
-    left: 49.5%;
-    width: 1%;
-    height: 1%;
-}
+#polaris {top: 26%; left: 49.5%; width: 1%; height: 1%;}
 
-#grandeOurs {
-    top: 37%;
-    left: 48%;
-    width: 4%;
-    height: 2%;
-}
+#grandeOurs {top: 37%; left: 48%; width: 4%; height: 2%;}
 
-#pleiades {
-    top: 36%; 
-    left: 60%;
-    width: 1%;
-    height: 1%;
-}
+#pleiades {top: 36%; left: 60%; width: 1%; height: 1%;}
 
 /* Le Zodiaque */
 
-#belier {
-    top: 30%;
-    left: 62%;
-    width: 1%;
-    height: 2%
-}
+#belier {top: 30%; left: 62%; width: 1%; height: 2%}
 
-#taureau {
-    top: 42%; 
-    left: 61%;
-    width: 2%;
-    height: 3%;
-}
+#taureau {top: 42%; left: 61%; width: 2%; height: 3%;}
 
-#gemeaux {
-    top: 43%; 
-    left: 56%;
-    width: 2%;
-    height: 3%;
-}
+#gemeaux {top: 43%; left: 56%; width: 2%; height: 3%;}
 
 
 
 
-/* La Lune */
+/* La Lune et le Soleil */
 
 .label-lune {
     position: absolute;
@@ -137,48 +121,6 @@ h1 {
     cursor: pointer;
 }
 
-.lune-lien img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: rotate(-12deg);
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
-}
-
-
-.label-lune img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: rotate(18deg);
-}
-
-.label-lune .tooltip {
-    position: absolute;
-    top: -35px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #001f3f;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 8px;
-    border: 0.5px solid white;
-    font-size: 14px;
-    white-space: nowrap;
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    pointer-events: none;
-    z-index: 10;
-    text-shadow: 0 0 4px rgba(255,255,255,0.2);
-}
-
-.label-lune:hover .tooltip {
-    opacity: 1;
-}
-
-/* Le Soleil */
-
 .label-soleil {
     position: absolute;
     top: 30%;  /* change selon l'endroit souhaité */
@@ -188,7 +130,7 @@ h1 {
     cursor: pointer;
 }
 
-.soleil-lien img {
+.lune-lien img, .soleil-lien img {
     width: 100%;
     height: auto;
     display: block;
@@ -197,14 +139,15 @@ h1 {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
-.label-soleil img {
+
+.label-lune img, .label-soleil img {
     width: 100%;
     height: auto;
     display: block;
-    transform: rotate(35deg);
+    transform: rotate(18deg);
 }
 
-.label-soleil .tooltip {
+.label-lune .tooltip, .label-soleil .tooltip {
     position: absolute;
     top: -35px;
     left: 50%;
@@ -223,6 +166,6 @@ h1 {
     text-shadow: 0 0 4px rgba(255,255,255,0.2);
 }
 
-.label-soleil:hover .tooltip {
+.label-lune:hover .tooltip, .label-soleil:hover .tooltip {
     opacity: 1;
 }
