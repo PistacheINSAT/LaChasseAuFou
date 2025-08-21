@@ -129,20 +129,8 @@ body, html {
     cursor: pointer;
 }
 
-.label-venus {
-    position: absolute;
-    top: 45%;  /* change selon l'endroit souhaité */
-    left: 67%; /* idem */
-    width: 1%; /* ajuste selon la taille de lune.png */
-    height: auto;
-    cursor: pointer;
-}
 
-.label-venus .venus-lien {
-    transform: scale(0.1);
-}
-
-.lune-lien img, .soleil-lien img, .venus-lien img {
+.lune-lien img, .soleil-lien img {
     width: 100%;
     height: auto;
     display: block;
@@ -157,16 +145,9 @@ body, html {
     filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.3));
 }
 
-.venus-lien {
-    display: inline-block;
-    padding: 20px; /* agrandit la zone cliquable sans toucher à l'image */
-}
 
-.venus-lien img {
-    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
-}
 
-.label-lune img, .label-soleil img, .label-venus img {
+.label-lune img, .label-soleil img {
     width: 100%;
     height: auto;
     display: block;
@@ -194,4 +175,38 @@ body, html {
 
 .label-lune:hover .tooltip, .label-soleil:hover .tooltip, .label-venus:hover .tooltip {
     opacity: 1;
+}
+
+
+/* Vénus */
+
+.label-venus {
+    position: absolute;
+    top: 41%;    /* À ajuster selon l'emplacement désiré */
+    left: 66%;   /* Idem */
+    width: 5%;   /* Taille de la boîte cliquable */
+    height: 5%;
+    cursor: pointer;
+}
+
+.venus-lien {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.venus-hitbox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.venus-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 3%;    /* Taille de l'image à l'intérieur de la hitbox */
+    height: auto;
+    transform: translate(-50%, -50%) rotate(10deg); /* centrée dans la boîte */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.4));
 }
