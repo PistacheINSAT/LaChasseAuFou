@@ -129,24 +129,51 @@ body, html {
     cursor: pointer;
 }
 
-.lune-lien img, .soleil-lien img {
+.label-venus {
+    position: absolute;
+    top: 45%;  /* change selon l'endroit souhaité */
+    left: 67%; /* idem */
+    width: 3%; /* ajuste selon la taille de lune.png */
+    height: auto;
+    cursor: pointer;
+}
+
+.label-venus .venus-lien {
+    transform: scale(0.1);
+}
+
+.lune-lien img, .soleil-lien img, .venus-lien img {
     width: 100%;
     height: auto;
     display: block;
     transform: rotate(-12deg);
     transition: transform 0.3s ease;
+}
+.lune-lien img {
     filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
+.soleil-lien img {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 0, 0.3));
+}
 
-.label-lune img, .label-soleil img {
+.venus-lien {
+    display: inline-block;
+    padding: 20px; /* agrandit la zone cliquable sans toucher à l'image */
+}
+
+.venus-lien img {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.3));
+}
+
+.label-lune img, .label-soleil img, .label-venus img {
     width: 100%;
     height: auto;
     display: block;
     transform: rotate(18deg);
 }
 
-.label-lune .tooltip, .label-soleil .tooltip {
+.label-lune .tooltip, .label-soleil .tooltip, .label-venus .tooltip {
     position: absolute;
     top: -35px;
     left: 50%;
@@ -165,6 +192,6 @@ body, html {
     text-shadow: 0 0 4px rgba(255,255,255,0.2);
 }
 
-.label-lune:hover .tooltip, .label-soleil:hover .tooltip {
+.label-lune:hover .tooltip, .label-soleil:hover .tooltip, .label-venus:hover .tooltip {
     opacity: 1;
 }

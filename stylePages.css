@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #001f3f; /* #0a1f44; /* bleu foncé */
+    color: #000;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #08162f;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-family: 'Cinzel', serif;
+}
+
+nav a:hover {
+    color: #a0c4ff;
+}
+
+h1 {
+  color: white;
+  max-width: 800px;
+  margin: 30px auto 20px auto; /* centré horizontalement */
+  padding-left: 20px;
+  text-align: left;
+  font-size: 2em;
+  font-family: 'Cinzel', serif;
+}
+
+main {
+  max-width: 800px;
+  padding: 0 5% 5%;
+  flex: 1;
+}
+
+.content-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.content-box p {
+    color: black;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.link-list {
+    list-style-type: disc; /* points visibles */
+    padding-left: 20px; /* pour décaler les puces à gauche */
+}
+
+.link-list li {
+    margin-bottom: 10px;
+}
+
+.link-list a {
+    color: #0a1f44;
+    text-decoration: none;
+}
+
+.link-list a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #08162f;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 20px;
+    font-size: 0.9em;
+    height: 40px;
+    line-height: 20px;
+}
