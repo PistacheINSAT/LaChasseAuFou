@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Le Zodiaque</title>
   <link rel="stylesheet" href="../stylePages.css">
+  <link rel="icon" href="../logo.png" type="image/png" />
+
+
 </head>
 <body>
   <header>
@@ -20,7 +23,162 @@
     <h1>Le Zodiaque</h1>
 
     <div class="content-box">
-        <p>Le Zodiaque et ses 12 signes.</p>
+        <p>
+          Le Zodiaque est un ensemble de 12 signes astronomiques auxquels, pour des raisons
+          étranges, certaines personnes accordent une importance capitale.
+        </p>
+        <p>
+          Les signes du zodiaque sont nés en observant le chemin que suit le Soleil dans le ciel au fil de
+          l'année (ce qu'on appelle l'écliptique). Les astrologues de l'Antiquité ont pris ce cercle céleste et
+          l'ont découpé en 12 parts égales de 30°, en partant du point vernal, c'est-à-dire l'endroit où le Soleil se
+          trouve au moment de l'équinoxe de printemps. Chaque portion correspond à un signe astrologique, réparti de manière
+          régulière, indépendamment de la taille réelle des constellations dans le ciel.
+        </p>
+        <p>
+          Ce découpage daterait d'environ 500 av. J.-C., en Mésopotamie. Ce seraient les Babyloniens qui auraient posé les bases du
+          Zodiaque qu'on utilise encore aujourd'hui. Plus tard, les Grecs ont repris ce système, l'ont affiné, et l'ont intégré à
+          leur propre vision de l'univers, surtout grâce à Ptolémée.
+        </p>
+        <p>
+          Le mot zodiaque vient du grec “zōidiakos kyklos”, qui signifie “cercle des petits animaux”.
+        </p>
+        <p>
+          En astrologie, le zodiaque est une véritable roue de fortune, sensé être capable de déterminer des fragments de
+          l'avenir en fonction du signe sous lequel on naît (signe sous le soleil sur l'écliptique au moment de la naissance).
+          Chaque signe est associé à une énergie particulière, un caractère et un thème qui est sensé influencer les personnes nées sous ce signe.
+        </p>
+    <!-- </div> -->
+
+
+
+  <div class="wheel-wrapper">
+    <div class="wheel outer-wheel" id="outerWheel"></div>
+    <div class="wheel inner-wheel" id="innerWheel"></div>
+  </div>
+
+  <script>
+  const outerSegments = [
+    { text: "Taureau", lien: "taureau.html" },
+    { text: "Gémeaux", lien: "gemeaux.html" },
+    { text: "Cancer", lien: "cancer.html" },
+    { text: "Lion", lien: "lion.html" },
+    { text: "Vierge", lien: "vierge.html" },
+    { text: "Balance", lien: "balance.html" },
+    { text: "Scorpion", lien: "scorpion.html" },
+    { text: "Sagittaire", lien: "sagittaire.html" },
+    { text: "Capricorne", lien: "capricorne.html" },
+    { text: "Verseau", lien: "verseau.html" },
+    { text: "Poissons", lien: "poissons.html" },
+    { text: "Bélier", lien: "belier.html" }
+  ];
+
+  const innerSegments = [
+    { text: "", img: "imagesZodiaque/2_taureau.png" },
+    { text: "", img: "imagesZodiaque/3_gemeaux.png" },
+    { text: "", img: "imagesZodiaque/4_cancer.png" },
+    { text: "", img: "imagesZodiaque/5_lion.png" },
+    { text: "", img: "imagesZodiaque/6_vierge.png" },
+    { text: "", img: "imagesZodiaque/7_balance.png" },
+    { text: "", img: "imagesZodiaque/8_scorpion.png" },
+    { text: "", img: "imagesZodiaque/9_sagittaire.png" },
+    { text: "", img: "imagesZodiaque/10_capricorne.png" },
+    { text: "", img: "imagesZodiaque/11_verseau.png" },
+    { text: "", img: "imagesZodiaque/12_poissons.png" },
+    { text: "", img: "imagesZodiaque/1_belier.png" }
+  ];
+
+// Pour la roue extérieure (texte simple)
+function createTextSegments(wheelElement, segments) {
+  const count = segments.length;
+  for (let i = 0; i < count; i++) {
+    const segment = document.createElement('div');
+    segment.className = 'segment';
+    const angle = i * (360 / count);
+    segment.style.transform = `rotate(${angle}deg) translate(0, -105%)`;
+
+    segment.innerHTML = `
+      <a href="${segments[i].lien}" 
+         style="color: black; text-decoration: none; display: block; transform: rotate(44deg);">
+        ${segments[i].text}
+      </a>
+    `;
+
+    wheelElement.appendChild(segment);
+  }
+}
+
+// Pour la roue intérieure (texte + image)
+function createImageSegments(wheelElement, segments) {
+  const count = segments.length;
+  for (let i = 0; i < count; i++) {
+    const segment = document.createElement('div');
+    segment.className = 'segment';
+    const angle = i * (360 / count);
+    segment.style.transform = `rotate(${angle}deg) translate(0, -100%)`;
+
+    segment.innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="${segments[i].img}" alt="" style="max-width: 40px; max-height: 40px; margin-bottom: 5px; transform: rotate(44deg);">
+        <span>${segments[i].text}</span>
+      </div>
+    `;
+
+    wheelElement.appendChild(segment);
+
+    
+  }
+}
+
+// Génération des roues
+createTextSegments(document.getElementById('outerWheel'), outerSegments);
+createImageSegments(document.getElementById('innerWheel'), innerSegments);
+
+  function makeDraggable(wheelElement) {
+    let isDragging = false;
+    let lastAngle = 0;
+    let rotation = 0;
+
+    function getAngle(e) {
+      const rect = wheelElement.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const x = e.clientX - centerX;
+      const y = e.clientY - centerY;
+      return Math.atan2(y, x) * (180 / Math.PI);
+    }
+
+    wheelElement.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      lastAngle = getAngle(e);
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const currentAngle = getAngle(e);
+      const delta = currentAngle - lastAngle;
+      rotation += delta;
+      wheelElement.style.transform = `rotate(${rotation}deg)`;
+      lastAngle = currentAngle;
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  }
+
+  makeDraggable(document.getElementById('outerWheel'));
+  makeDraggable(document.getElementById('innerWheel'));
+</script>
+
+    <!-- <div class="content-box"> -->
+        <p>
+          On peut parfois trouver des références à un 13ᵉ signe, le Serpentaire, le Soleil traverse en effet aussi cette constellation sur l'écliptique.
+          Mais les astrologues de l'Antiquité avaient volontairement choisi 12 signes pour coller au cycle des mois et garder un découpage régulier.
+          Le Serpentaire est bien une constellation, mais elle ne fait pas partie des signes du zodiaque en astrologie traditionnelle.
+        </p>
     </div>
+
+
+
 
 </body>
