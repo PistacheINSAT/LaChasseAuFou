@@ -121,6 +121,15 @@ h1 a.small-link:hover {
   height: 500px;
   margin: 40px auto;
 }
+.wheel-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  margin: 40px auto;
+  overflow: hidden;
+}
 
 .wheel {
   position: absolute;
@@ -131,6 +140,16 @@ h1 a.small-link:hover {
   background-color: white;
   overflow: hidden;
   border: 2px solid black; /* Bord extérieur de la roue */
+}
+
+.wheel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .outer-wheel {
