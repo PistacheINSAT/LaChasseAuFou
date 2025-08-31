@@ -131,6 +131,15 @@ h1 a.small-link:hover {
   overflow: hidden;
 }
 
+.wheel-wrapper {
+  position: relative;
+  width: 90vw;              /* largeur adaptée à l'écran */
+  max-width: 500px;         /* limite sur les grands écrans */
+  aspect-ratio: 1 / 1;      /* hauteur automatique pour garder un cercle */
+  margin: 40px auto;
+  overflow: visible;
+}
+
 .wheel {
   position: absolute;
   width: 100%;
