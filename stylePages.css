@@ -254,3 +254,7 @@ h1 a.small-link:hover {
     display: none;
   }
 }
+
+.u-wavy {
+  text-decoration: rgb(178, 6, 52) wavy underline;
+}
