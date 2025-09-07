@@ -29,7 +29,7 @@ body, html {
 }
 
 /* Paragraphe en haut à droite */
-.boussole {
+/*.boussole {
     margin: 0;
     padding: 0%;
     position: absolute;
@@ -37,8 +37,8 @@ body, html {
     right: 1%;
     margin: 0;
     color: white;
-    /*font-size: 1rem;*/
 }
+*/
 
 /* Cadre central contenant la carte du ciel */
 .cadre {
