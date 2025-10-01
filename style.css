@@ -24,21 +24,10 @@ body, html {
     margin: 0;
     color: white;
     font-family: 'Cinzel', serif;
+    font-size: 80%;
     /*font-size: 2rem;*/
     text-shadow: 0 0 5px rgba(241, 236, 236, 0.345);
 }
-
-/* Paragraphe en haut à droite */
-/*.boussole {
-    margin: 0;
-    padding: 0%;
-    position: absolute;
-    top: 1%;
-    right: 1%;
-    margin: 0;
-    color: white;
-}
-*/
 
 /* Cadre central contenant la carte du ciel */
 .cadre {
@@ -106,8 +95,23 @@ body, html {
 
 #gemeaux {top: 43%; left: 56%; width: 2%; height: 3%;}
 
+#cancer {top: 45%; left: 54%; width: 1%; height: 1%}
 
+#lion {top: 45%; left: 50%; width: 1%; height: 1%}
 
+#vierge {top: 52%; left: 45%; width: 1%; height: 1%}
+
+#balance {top: 56%; left: 41%; width: 1%; height: 1%}
+
+#scorpion {top: 63%; left: 39%; width: 1%; height: 2%}
+
+#sagittaire {top: 63%; left: 35%; width: 1%; height: 2%}
+
+#capricorne {top: 66%; left: 32%; width: 1%; height: 2%}
+
+#verseau {top: 60%; left: 27%; width: 1%; height: 8%}
+
+#poissons {top: 32%; left: 26%; width: 1%; height: 2%}
 
 /* La Lune et le Soleil */
 
@@ -123,7 +127,7 @@ body, html {
 .label-soleil {
     position: absolute;
     top: 30%;  /* change selon l'endroit souhaité */
-    left: 65%; /* idem */
+    left: 66%; /* idem */
     width: 4%; /* ajuste selon la taille de lune.png */
     height: auto;
     cursor: pointer;
